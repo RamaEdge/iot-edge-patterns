@@ -1,0 +1,4 @@
+resources:
+- mqtt-config.yaml
+- mqtt-password.yaml
+- mqtt-broker.yaml
