@@ -52,6 +52,13 @@ spec:
           name: mosquitto
           ports:
             - containerPort: 1883
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "250m"
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
           volumeMounts:
             - name: mosquitto-persistent-storage
               mountPath: /mosquitto/data
