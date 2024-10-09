@@ -1,6 +1,13 @@
 use rumqttc::{Client, LastWill, MqttOptions, QoS};
 use std::thread;
 use std::time::Duration;
+//use std::sync::mpsc::{channel, Receiver};
+
+/*struct Message {
+    topic: String,
+    payload: Vec<u8>,
+}
+*/
 
 /*
  * This is the main function of the program. In this function, we initialize an MQTT client,
@@ -8,6 +15,7 @@ use std::time::Duration;
  * and call the publish function in a new thread. Next, we use connection.iter()
  * method to iterate through the notifications in the connection and handle each notification.
  */
+
 fn main() {
     // Initialize the logger
     pretty_env_logger::init();
@@ -59,3 +67,60 @@ fn publish(client: Client) {
 
     thread::sleep(Duration::from_secs(1));
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use rumqttc::{Client, MqttOptions, QoS};
+    use std::sync::{Arc, Mutex};
+    use std::thread;
+    use std::time::Duration;
+
+    // Helper function to create a test MQTT client
+    fn create_test_client() -> Client {
+        let mqttoptions = MqttOptions::new("test-1", "broker.emqx.io", 1883);
+        let (client, _connection) = Client::new(mqttoptions, 10);
+        client
+    }
+
+    #[test]
+    fn test_publish_message() {
+        let client = create_test_client();
+        let topic = "test/topic";
+        let payload = b"test payload";
+        let qos = QoS::AtLeastOnce;
+
+        publish_message(&client, topic, payload, qos);
+        // Add assertions or checks to verify the message was published
+    }
+
+    #[test]
+    fn test_publish() {
+        let client = create_test_client();
+        let client = Arc::new(Mutex::new(client));
+
+        let client_clone = Arc::clone(&client);
+        thread::spawn(move || {
+            let client = client_clone.lock().unwrap();
+            publish(client.clone());
+        });
+
+        thread::sleep(Duration::from_secs(2));
+
+        // Add assertions or checks to verify the messages were published
+    }
+
+    /*#[test]
+    fn test_main() {
+        // This test will run the main function and check if it completes without errors
+        let result = std::panic::catch_unwind(|| {
+            main();
+        });
+        assert!(result.is_ok());
+    }*/
+}
+
+fn publish_message(client: &Client, topic: &str, payload: &[u8], qos: QoS) {
+    client.publish(topic, qos, true, payload).unwrap();
+}
+
