@@ -1,0 +1,104 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: otelcol
+  labels:
+    app: open-telemetry
+  namespace: open-telemetry
+data:
+  config.yaml: |
+    extensions:
+    receivers:
+      otlp:
+        protocols:
+          http:
+            endpoint: ${env:POD_IP}:4318 
+          grpc:
+            endpoint: ${env:POD_IP}:4317
+
+      kubeletstats:
+        collection_interval: 30s
+        endpoint: "https://${env:HOST_IP}:10250"
+        auth_type: "serviceAccount"
+        insecure_skip_verify: true
+        metrics:
+          container.cpu.utilization:
+            enabled: false
+          k8s.node.cpu.utilization:
+            enabled: false
+          k8s.pod.cpu.utilization:
+            enabled: false
+          container.cpu.usage:
+            enabled: true
+          k8s.node.cpu.usage:
+            enabled: true 
+          k8s.pod.cpu.usage:
+            enabled: true
+          k8s.node.uptime:
+            enabled: true
+          k8s.pod.uptime:
+            enabled: true
+          container.uptime:
+            enabled: true               
+
+      k8s_events:
+        auth_type: serviceAccount
+
+      k8s_cluster:
+        collection_interval: 30s
+        node_conditions_to_report: [Ready, MemoryPressure]
+        allocatable_types_to_report: [cpu, memory]
+        metadata_collection_interval: 30m
+
+    processors:
+      resource:
+        attributes:
+        - key: edge_name
+          value: ${env:NODE_NAME}
+          action: insert
+
+      memory_limiter:
+        check_interval: 1s
+        limit_mib: 2000
+        spike_limit_mib: 400
+
+      batch:
+        timeout: 5s
+
+    exporters:
+      file/no_rotation:
+        path: ./otel-file/otelfile
+
+      file/rotation_with_default_settings:
+        path: ./otel-file/otelfile
+        rotation:
+
+      file/rotation_with_custom_settings:
+        path: ./otel-file/otelfile
+        rotation:
+          max_megabytes: 10
+          max_days: 30
+          max_backup: 10
+          localtime: true
+        format: proto
+        compression: zstd
+
+      debug:
+        verbosity: normal
+
+    service:
+      pipelines:
+        metrics:
+          receivers: [otlp, kubeletstats, k8s_cluster]
+          processors: [memory_limiter, resource, batch]
+          exporters: [otlp, debug, file/no_rotation]
+
+        logs:
+          receivers: [otlp, k8s_events]
+          processors: [memory_limiter, batch]
+          exporters: [otlp, debug, file/no_rotation]
+
+        traces:
+          receivers: [otlp]
+          processors: [memory_limiter, batch]
+          exporters: [otlp, debug, file/no_rotation]

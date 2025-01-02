@@ -1,0 +1,14 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: open-telemetry-rolebinding
+  labels:
+    app: open-telemetry
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: open-telemetry
+subjects:
+- kind: ServiceAccount
+  name: open-telemetry
+  namespace: observability
