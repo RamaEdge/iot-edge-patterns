@@ -1,0 +1,5 @@
+# namespace.yaml for open-telemetry§
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: open-telemetry

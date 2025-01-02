@@ -1,0 +1,9 @@
+resources:
+  - namespace.yaml
+  - serviceaccount.yaml
+  - configmap.yaml
+  - pvc.yaml
+  - deployment.yaml
+  - service.yaml
+  - cluster-role.yaml
+  - cluster-rolebinding.yaml
