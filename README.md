@@ -8,7 +8,6 @@ The various use cases for an IoT Edge include:
 - Sending local application events and logs to the cloud
 - Sending metrics, logs, and traces of local devices to the cloud
 
-The various use cases covered where an IoT Edge would be:
 
 - Sending application data to the cloud
 - Sending Local application Events, Logs to Cloud
