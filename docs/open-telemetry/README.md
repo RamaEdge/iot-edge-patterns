@@ -32,12 +32,12 @@ Key features of OpenTelemetry include:
 Before deploying OpenTelemetry in a Kubernetes cluster, ensure you have the following prerequisites:
 
 1. **Kubernetes Cluster**:
-   - A running Kubernetes cluster (version 1.18 or later is recommended).
-   - Access to the Kubernetes cluster using `kubectl`.
+   - A running Kubernetes cluster (version 1.18 or later is recommended)
+   - Access to the Kubernetes cluster using `kubectl`
 
 2. **kubectl**:
-   - The Kubernetes command-line tool `kubectl` installed and configured to interact with your cluster.
-   - Ensure `kubectl` is configured to use the correct context for your cluster.
+   - The Kubernetes command-line tool `kubectl` installed and configured to interact with your cluster
+   - Ensure `kubectl` is configured to use the correct context for your cluster
 
 
 ## Deploy Using Kustomize
