@@ -35,5 +35,5 @@ Run the following command to deploy the resources using Kustomize:
 kubectl apply -k open-telemetry
 ```
 
-This command will apply all the resources defined in the `kustomization.yaml` files, setting up the OpenTelemetry deployment in your Kubernetes cluster.
+This command will apply all the resources specified in the `kustomization.yaml` file, deploying OpenTelemetry into your Kubernetes cluster.
 
