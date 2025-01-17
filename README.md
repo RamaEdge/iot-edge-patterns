@@ -15,7 +15,11 @@ The various use cases for an IoT Edge include:
 
 ## IoT Edge Gateway Pattern
 
-An IoT Edge Gateway can consist of the following modules
+An IoT Edge Gateway can consist of the following modules:
+- A Kubernetes Cluster to manage and execute applications
+- An MQTT Broker and Client to send MQTT messages to the cloud
+- An OPC UA Client to receive OPC UA data from an OPC UA Server
+- OpenTelemetry to capture metrics, logs, and traces for applications running on the edge
 
 - A Kubernetes Cluster to manage and execute applications.
 
