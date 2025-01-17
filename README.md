@@ -1,6 +1,12 @@
 # IoT Edge Patterns
 
-This repository provides patterns on how we can deploy an IoT Edge Device. An IoT Edge device can be used as a gateway to local devices and allows you to send local device data to the Cloud. 
+
+This repository provides patterns on how to deploy an IoT Edge Device. An IoT Edge device can be used as a gateway to local devices and allows you to send local device data to the cloud.
+
+The various use cases for an IoT Edge include:
+- Sending application data to the cloud
+- Sending local application events and logs to the cloud
+- Sending metrics, logs, and traces of local devices to the cloud
 
 The various use cases covered where an IoT Edge would be:
 
