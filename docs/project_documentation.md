@@ -46,41 +46,41 @@ This project consists of multiple components including an MQTT broker, MQTT clie
 ```
 
 ## MQTT Broker
-This directory contains the configuration files for setting up an MQTT broker.
+This directory contains the configuration files for setting up an MQTT broker
 
-- `kustomization.yaml`: Kustomize configuration file.
-- `mqtt-broker.yaml`: Main configuration for the MQTT broker.
-- `mqtt-config.yaml`: Additional configuration settings for the MQTT broker.
-- `mqtt-password.yaml`: Password configuration for the MQTT broker.
+- `kustomization.yaml`: Kustomize configuration file
+- `mqtt-broker.yaml`: Main configuration for the MQTT broker
+- `mqtt-config.yaml`: Additional configuration settings for the MQTT broker
+- `mqtt-password.yaml`: Password configuration for the MQTT broker
 
 ## MQTT Client
-This directory contains the source code for the MQTT client written in Rust.
+This directory contains the source code for the MQTT client written in Rust
 
-- `Cargo.lock`: Lock file for Cargo dependencies.
-- `Cargo.toml`: Configuration file for Cargo dependencies.
-- `src/main.rs`: Main entry point for the MQTT client.
-- `src/syncpubsub.rs`: Module for synchronous publish/subscribe functionality.
+- `Cargo.lock`: Lock file for Cargo dependencies
+- `Cargo.toml`: Configuration file for Cargo dependencies
+- `src/main.rs`: Main entry point for the MQTT client
+- `src/syncpubsub.rs`: Module for synchronous publish/subscribe functionality
 
 ## OPC UA Client
-This directory contains the source code for the OPC UA client written in Rust.
+This directory contains the source code for the OPC UA client written in Rust
 
-- `Cargo.lock`: Lock file for Cargo dependencies.
-- `Cargo.toml`: Configuration file for Cargo dependencies.
-- `src/main.rs`: Main entry point for the OPC UA client.
+- `Cargo.lock`: Lock file for Cargo dependencies
+- `Cargo.toml`: Configuration file for Cargo dependencies
+- `src/main.rs`: Main entry point for the OPC UA client
 
 ## Open Telemetry
-This directory contains the configuration files for setting up Open Telemetry.
+This directory contains the configuration files for setting up Open Telemetry
 
-- `cluster-rolebinding.yaml`: Cluster role binding configuration.
-- `cluster-role.yaml`: Cluster role configuration.
-- `configmap.yaml`: Configuration map for Open Telemetry.
-- `deployment.yaml`: Deployment configuration for Open Telemetry.
-- `kustomization.yaml`: Kustomize configuration file.
-- `namespace.yaml`: Namespace configuration.
-- `pvc.yaml`: Persistent volume claim configuration.
-- [`README.md`]: Documentation for Open Telemetry setup.
-- `serviceaccount.yaml`: Service account configuration.
-- `service.yaml`: Service configuration for Open Telemetry.
+- `cluster-rolebinding.yaml`: Cluster role binding configuration
+- `cluster-role.yaml`: Cluster role configuration
+- `configmap.yaml`: Configuration map for Open Telemetry
+- `deployment.yaml`: Deployment configuration for Open Telemetry
+- `kustomization.yaml`: Kustomize configuration file
+- `namespace.yaml`: Namespace configuration
+- `pvc.yaml`: Persistent volume claim configuration
+- [`README.md`]: Documentation for Open Telemetry setup
+- `serviceaccount.yaml`: Service account configuration
+- `service.yaml`: Service configuration for Open Telemetry
 
 ## Root README
 The root [`README.md`] provides an overview and general information about the project.
