@@ -21,14 +21,6 @@ An IoT Edge Gateway can consist of the following modules:
 - An OPC UA Client to receive OPC UA data from an OPC UA Server
 - OpenTelemetry to capture metrics, logs, and traces for applications running on the edge
 
-- A Kubernetes Cluster to manage and execute applications.
-
-- An MQTT Broker and Client to send MQTT messages to the Cloud. 
-
-- An OPCUA Client to receive OPCUA data from an OPCUA Server
-
-- Open-telemetry to capture Metrics, logs and traces for applications running on the Edge
-
 ## Deploying an IoT Edge Gateway
 
 There are multiple ways by which you can deploy applications on the IoT Edge Gateway. You can use `GitOps` which allows you to synchronize Kubernetes yamls to the Kubernetes Cluster running on the Edge.
