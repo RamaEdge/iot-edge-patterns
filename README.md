@@ -18,7 +18,9 @@ An IoT Edge Gateway can consist of the following modules:
 
 ## Deploying an IoT Edge Gateway
 
-There are multiple ways by which you can deploy applications on the IoT Edge Gateway. You can use `GitOps` which allows you to synchronize Kubernetes yamls to the Kubernetes Cluster running on the Edge.
+There are multiple ways to deploy applications on the IoT Edge Gateway. You can use `GitOps`, which allows you to synchronize Kubernetes YAML files to the Kubernetes Cluster running on the edge. Another option is using [Image Mode](https://developers.redhat.com/products/rhel-image-mode/overview), which packages the cluster and applications as a single ISO image.
+
+This repository will cover how these methods can be used to deploy an edge easily and quickly.
 The other possibilities is by using [Image Mode](https://developers.redhat.com/products/rhel-image-mode/overview). This is a mechanism by which you can package the Cluster and applications as a single ISO Image.
 
 This repository will cover how these methods can be used to deploy an Edge easily and quickly. 
