@@ -8,11 +8,6 @@ The various use cases for an IoT Edge include:
 - Sending local application events and logs to the cloud
 - Sending metrics, logs, and traces of local devices to the cloud
 
-
-- Sending application data to the cloud
-- Sending Local application Events, Logs to Cloud
-- Sending Metrics, Logs and Traces of Local Devices to Cloud
-
 ## IoT Edge Gateway Pattern
 
 An IoT Edge Gateway can consist of the following modules:
