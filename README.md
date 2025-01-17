@@ -22,4 +22,3 @@ There are multiple ways to deploy applications on the IoT Edge Gateway. You can 
 
 This repository will cover how these methods can be used to deploy an edge easily and quickly.
 
-This repository will cover how these methods can be used to deploy an Edge easily and quickly. 
