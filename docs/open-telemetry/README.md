@@ -21,7 +21,13 @@ Before deploying OpenTelemetry in a Kubernetes cluster, ensure you have the foll
    - The Kubernetes command-line tool `kubectl` installed and configured to interact with your cluster.
    - Ensure `kubectl` is configured to use the correct context for your cluster.
 
+
 ## Deploy Using Kustomize
+
+Run the following command to deploy the resources using Kustomize:
+
+```sh
+kubectl apply -k open-telemetry
 
 Run the following command to deploy the resources using Kustomize:
 
