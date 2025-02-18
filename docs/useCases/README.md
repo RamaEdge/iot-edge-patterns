@@ -11,6 +11,7 @@ Below are some of the use cases for IoT Edge.
    - Predictive maintenance
    - Quality control
    - Asset tracking
+   - Operator Stress Control
 
 3. **Healthcare**:
    - Remote patient monitoring
